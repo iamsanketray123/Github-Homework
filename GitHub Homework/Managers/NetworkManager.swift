@@ -73,7 +73,8 @@ class NetworkManager {
                 completion(.failure(.invalidData))
                 return
             }
-
+            
+            // traditional method
             let parsedResult : [String:AnyObject]!
             
             do {
@@ -124,6 +125,7 @@ class NetworkManager {
                 return
             }
 
+//            using Codable
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase

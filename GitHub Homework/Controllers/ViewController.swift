@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     let repositoryCellId = "repositoryCellId"
     let cellNibName = "RepositoryDetailCell"
-    
+    let reachability = Reachability()!
     var trendingRepos = [Repository]()
     
     override func viewDidLoad() {
@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         
         setupUI()
         fetchTrendingRepos()
+        setupConnectivityNotifier()
     }
     
     fileprivate func setupUI() {
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
         table.dataSource = self
         table.register(UINib.init(nibName: cellNibName, bundle: nil), forCellReuseIdentifier: repositoryCellId)
         table.keyboardDismissMode = .onDrag
+        table.tableFooterView = UIView()
     }
     
     fileprivate func fetchTrendingRepos() {
@@ -56,7 +58,24 @@ class ViewController: UIViewController {
                     self.dismissLoadingView()
                 }
             }
-            
+        }
+    }
+    
+    fileprivate func setupConnectivityNotifier() {
+        NotificationCenter.default.addObserver(self, selector: #selector(internetConnectionChanged), name: Notification.Name.reachabilityChanged, object: reachability)
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("could not start notifier")
+        }
+    }
+    
+    @objc func internetConnectionChanged(notification : Notification) {
+        let reachability = notification.object as! Reachability
+        if reachability.connection == .none {
+            presentGHAlertOnMainThread(title: "No Internet", message: "Please check your internet connectivity and try again!", buttonTitle: "OK")
+        } else {
+            fetchTrendingRepos()
         }
     }
 }
@@ -125,8 +144,6 @@ extension ViewController: UISearchBarDelegate {
                 self.presentGHAlertOnMainThread(title: "Error", message: error.rawValue, buttonTitle: "OK")
                 self.dismissLoadingView()
             }
-            
         }
-        
     }
 }

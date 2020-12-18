@@ -25,6 +25,7 @@ class SearchResultsController: UIViewController {
         table.delegate = self
         table.dataSource = self
         table.register(UINib.init(nibName: cellNibName, bundle: nil), forCellReuseIdentifier: repositoryCellId)
+        table.tableFooterView = UIView() // hide extra lines at bottom of tableView if there are no more elements to display
     }
 }
 

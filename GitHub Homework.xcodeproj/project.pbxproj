@@ -28,6 +28,7 @@
 		199F0127258D4D2400FE091B /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199F0125258D4D2400FE091B /* UserProfileController.swift */; };
 		199F0128258D4D2400FE091B /* UserProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 199F0126258D4D2400FE091B /* UserProfileController.xib */; };
 		199F015B258D4FF000FE091B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199F015A258D4FF000FE091B /* ImageCache.swift */; };
+		199F015F258D5CA100FE091B /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199F015E258D5CA100FE091B /* Connectivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		199F0125258D4D2400FE091B /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		199F0126258D4D2400FE091B /* UserProfileController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileController.xib; sourceTree = "<group>"; };
 		199F015A258D4FF000FE091B /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		199F015E258D5CA100FE091B /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				19005B45258CF9D400F8948D /* Main.storyboard */,
 				19005B61258D0EB700F8948D /* GitHubError.swift */,
 				199F015A258D4FF000FE091B /* ImageCache.swift */,
+				199F015E258D5CA100FE091B /* Connectivity.swift */,
 				19005B7C258D3BE700F8948D /* Managers */,
 				19005B7E258D3BFC00F8948D /* Model */,
 				19005B84258D3C5900F8948D /* Cells */,
@@ -237,6 +240,7 @@
 				199F011C258D3EBF00FE091B /* CustomTitleLabel.swift in Sources */,
 				19005B73258D267800F8948D /* SearchResultsController.swift in Sources */,
 				19005B78258D2A7D00F8948D /* RepositoryDetailCell.swift in Sources */,
+				199F015F258D5CA100FE091B /* Connectivity.swift in Sources */,
 				19005B5F258D0E8100F8948D /* Repository.swift in Sources */,
 				19005B62258D0EB800F8948D /* GitHubError.swift in Sources */,
 				19005B6A258D244D00F8948D /* CustomAlert.swift in Sources */,

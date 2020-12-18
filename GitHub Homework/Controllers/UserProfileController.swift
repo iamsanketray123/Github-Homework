@@ -19,6 +19,7 @@ class UserProfileController: UIViewController {
     @IBOutlet weak var following: UILabel!
     @IBOutlet weak var followers: UILabel!
     @IBOutlet weak var memberSince: UILabel!
+    @IBOutlet weak var bio: UILabel!
     
     var user: User? = nil
     
@@ -42,6 +43,7 @@ class UserProfileController: UIViewController {
         gist.text = "\(user.publicGists)"
         following.text = "\(user.following)"
         followers.text = "\(user.followers)"
+        bio.text = user.bio
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

@@ -17,7 +17,6 @@ extension UIViewController {
             let alertVC = GHAlertVC(title: title, message: message, buttonTitle: buttonTitle)
             alertVC.modalPresentationStyle = .overFullScreen
             alertVC.modalTransitionStyle = .crossDissolve
-
             self.present(alertVC, animated: true)
         }
     }
@@ -47,8 +46,10 @@ extension UIViewController {
 
     func dismissLoadingView() {
         DispatchQueue.main.async {
-            containerView.removeFromSuperview()
-            containerView = nil
+            if containerView != nil {
+                containerView.removeFromSuperview()
+                containerView = nil
+            }
         }
     }
 }
