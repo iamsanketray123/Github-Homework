@@ -25,10 +25,12 @@ class ViewController: UIViewController {
     }
     
     fileprivate func setupUI() {
+        
         searchBar.delegate = self
         table.delegate = self
         table.dataSource = self
         table.register(UINib.init(nibName: cellNibName, bundle: nil), forCellReuseIdentifier: repositoryCellId)
+        table.keyboardDismissMode = .onDrag
     }
     
     fileprivate func fetchTrendingRepos() {
@@ -38,7 +40,6 @@ class ViewController: UIViewController {
             
             switch result {
             case.success(let repos):
-                print(repos)
                 DispatchQueue.main.async {
                     self.trendingRepos = repos
                     self.table.reloadData()
@@ -78,30 +79,31 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if !searchBar.text!.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            showLoadingView()
-            NetworkManager.shared.fetchRepository(with: searchBar.text!) { [weak self] (result) in
-                guard let self = self else { return }
-                
-                switch result {
-                case.success(let repositories):
-                    DispatchQueue.main.async {
-                        let searchResultsController = SearchResultsController()
-                        searchResultsController.repositories = repositories
-                        self.navigationController?.pushViewController(searchResultsController, animated: true)
-                        self.dismissLoadingView()
-                    }
-                    
-                case .failure(let error):
-                    switch error {
-                    case .noResults:
-                        self.presentGHAlertOnMainThread(title: "Error", message: "No results were found for the repository name. Please try again!", buttonTitle: "Ok")
-                    default:
-                        ()
-                    }
+        
+        guard let text = searchBar.text, text.count > 0 else {
+            presentGHAlertOnMainThread(title: "Empty Seacrh", message: "Please enter a repository name to search for.", buttonTitle: "OK")
+            return
+        }
+        
+        showLoadingView()
+        NetworkManager.shared.fetchRepository(with: text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!) { [weak self] (result) in
+            guard let self = self else { return }
+            
+            switch result {
+            case.success(let repositories):
+                DispatchQueue.main.async {
+                    let searchResultsController = SearchResultsController()
+                    searchResultsController.repositories = repositories
+                    self.navigationController?.pushViewController(searchResultsController, animated: true)
+                    self.dismissLoadingView()
                 }
                 
+            case .failure(let error):
+                self.presentGHAlertOnMainThread(title: "Error", message: error.rawValue, buttonTitle: "OK")
+                self.dismissLoadingView()
             }
+            
         }
+        
     }
 }

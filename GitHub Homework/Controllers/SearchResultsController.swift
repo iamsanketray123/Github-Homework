@@ -25,22 +25,14 @@ class SearchResultsController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        setupUI()
         
     }
-    
-    fileprivate func setupUI() {
-//        self.navigationController?.navigationBar.topItem?.title = "Profile Settings"
-    }
-
     
     fileprivate func setupTableView() {
         table.delegate = self
         table.dataSource = self
         table.register(UINib.init(nibName: cellNibName, bundle: nil), forCellReuseIdentifier: repositoryCellId)
     }
-    
-
 }
 
 

@@ -20,7 +20,7 @@ class NetworkManager {
             var repLicense: License? = nil
             let language = item["language"] as? String
             
-            guard let name = item["full_name"] as? String, let stars = item["stargazers_count"] as? Int, let lastUpadatedAt = item["updated_at"] as? String else {
+            guard let name = item["full_name"] as? String, let stars = item["stargazers_count"] as? Int, let lastUpadatedAt = item["updated_at"] as? String, let createdAt = item["created_at"] as? String else {
                 throw GHError.invalidData
             }
             
@@ -39,7 +39,7 @@ class NetworkManager {
                 repLicense = License(name: name, urlString: urlString)
             }
             
-            let repository = Repository(name: name, stars: stars, owner: repOwner, description: description, language: language, license: repLicense, lastUpdated: lastUpadatedAt)
+            let repository = Repository(name: name, stars: stars, createdAt: createdAt, owner: repOwner, description: description, language: language, license: repLicense, lastUpdated: lastUpadatedAt)
             respositories.append(repository)
             
         }

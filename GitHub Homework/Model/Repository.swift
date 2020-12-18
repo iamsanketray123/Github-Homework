@@ -10,6 +10,7 @@ import Foundation
 struct Repository {
     let name: String
     let stars: Int
+    let createdAt: String
     let owner: Owner?
     let description: String?
     let language: String?

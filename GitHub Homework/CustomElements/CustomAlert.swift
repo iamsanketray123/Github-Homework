@@ -13,7 +13,7 @@ class GHAlertVC: UIViewController {
 
     fileprivate let containerView: UIView = {
         let v = UIView()
-        v.backgroundColor = .lightGray
+        v.backgroundColor = UIColor(red: 241/255, green: 241/255, blue: 244/255, alpha: 1)
         v.layer.cornerRadius = 16
         v.layer.borderWidth = 2
         v.layer.borderColor = UIColor.white.cgColor

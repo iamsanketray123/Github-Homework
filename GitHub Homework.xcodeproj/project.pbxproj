@@ -21,6 +21,9 @@
 		19005B74258D267800F8948D /* SearchResultsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19005B72258D267800F8948D /* SearchResultsController.xib */; };
 		19005B78258D2A7D00F8948D /* RepositoryDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19005B76258D2A7D00F8948D /* RepositoryDetailCell.swift */; };
 		19005B79258D2A7D00F8948D /* RepositoryDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19005B77258D2A7D00F8948D /* RepositoryDetailCell.xib */; };
+		19005B8A258D3D9E00F8948D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19005B89258D3D9E00F8948D /* CustomButton.swift */; };
+		199F0118258D3E2F00FE091B /* CustomBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199F0117258D3E2F00FE091B /* CustomBodyLabel.swift */; };
+		199F011C258D3EBF00FE091B /* CustomTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199F011B258D3EBF00FE091B /* CustomTitleLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		19005B72258D267800F8948D /* SearchResultsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultsController.xib; sourceTree = "<group>"; };
 		19005B76258D2A7D00F8948D /* RepositoryDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailCell.swift; sourceTree = "<group>"; };
 		19005B77258D2A7D00F8948D /* RepositoryDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryDetailCell.xib; sourceTree = "<group>"; };
+		19005B89258D3D9E00F8948D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		199F0117258D3E2F00FE091B /* CustomBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBodyLabel.swift; sourceTree = "<group>"; };
+		199F011B258D3EBF00FE091B /* CustomTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitleLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,22 +79,65 @@
 			isa = PBXGroup;
 			children = (
 				19005B3F258CF9D400F8948D /* AppDelegate.swift */,
-				19005B43258CF9D400F8948D /* ViewController.swift */,
 				19005B45258CF9D400F8948D /* Main.storyboard */,
-				19005B5B258D0D8B00F8948D /* NetworkManager.swift */,
-				19005B5E258D0E8100F8948D /* Repository.swift */,
+				19005B7C258D3BE700F8948D /* Managers */,
+				19005B7E258D3BFC00F8948D /* Model */,
+				19005B84258D3C5900F8948D /* Cells */,
+				19005B7F258D3C2500F8948D /* Controllers */,
 				19005B61258D0EB700F8948D /* GitHubError.swift */,
-				19005B66258D241E00F8948D /* ExtensionViewController.swift */,
-				19005B71258D267800F8948D /* SearchResultsController.swift */,
-				19005B72258D267800F8948D /* SearchResultsController.xib */,
-				19005B76258D2A7D00F8948D /* RepositoryDetailCell.swift */,
-				19005B77258D2A7D00F8948D /* RepositoryDetailCell.xib */,
-				19005B69258D244D00F8948D /* CustomAlert.swift */,
+				199F011E258D3EEA00FE091B /* CustomElements */,
 				19005B48258CF9D600F8948D /* Assets.xcassets */,
 				19005B4A258CF9D600F8948D /* LaunchScreen.storyboard */,
 				19005B4D258CF9D600F8948D /* Info.plist */,
 			);
 			path = "GitHub Homework";
+			sourceTree = "<group>";
+		};
+		19005B7C258D3BE700F8948D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				19005B5B258D0D8B00F8948D /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		19005B7E258D3BFC00F8948D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				19005B5E258D0E8100F8948D /* Repository.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		19005B7F258D3C2500F8948D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				19005B43258CF9D400F8948D /* ViewController.swift */,
+				19005B66258D241E00F8948D /* ExtensionViewController.swift */,
+				19005B71258D267800F8948D /* SearchResultsController.swift */,
+				19005B72258D267800F8948D /* SearchResultsController.xib */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		19005B84258D3C5900F8948D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				19005B76258D2A7D00F8948D /* RepositoryDetailCell.swift */,
+				19005B77258D2A7D00F8948D /* RepositoryDetailCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		199F011E258D3EEA00FE091B /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+				19005B69258D244D00F8948D /* CustomAlert.swift */,
+				19005B89258D3D9E00F8948D /* CustomButton.swift */,
+				199F0117258D3E2F00FE091B /* CustomBodyLabel.swift */,
+				199F011B258D3EBF00FE091B /* CustomTitleLabel.swift */,
+			);
+			path = CustomElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,8 +214,11 @@
 			files = (
 				19005B5C258D0D8B00F8948D /* NetworkManager.swift in Sources */,
 				19005B44258CF9D400F8948D /* ViewController.swift in Sources */,
+				199F0118258D3E2F00FE091B /* CustomBodyLabel.swift in Sources */,
 				19005B67258D241E00F8948D /* ExtensionViewController.swift in Sources */,
 				19005B40258CF9D400F8948D /* AppDelegate.swift in Sources */,
+				19005B8A258D3D9E00F8948D /* CustomButton.swift in Sources */,
+				199F011C258D3EBF00FE091B /* CustomTitleLabel.swift in Sources */,
 				19005B73258D267800F8948D /* SearchResultsController.swift in Sources */,
 				19005B78258D2A7D00F8948D /* RepositoryDetailCell.swift in Sources */,
 				19005B5F258D0E8100F8948D /* Repository.swift in Sources */,

@@ -71,7 +71,10 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JavaScript" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVv-Zp-rEc">
-                        <rect key="frame" x="92" y="120" width="247" height="14.5"/>
+                        <rect key="frame" x="92" y="120" width="80" height="14.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="Oi2-PI-8v6"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -82,20 +85,28 @@
                         <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLv-ql-j2W">
+                        <rect key="frame" x="188" y="127.5" width="151" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="QVv-Zp-rEc" firstAttribute="leading" secondItem="nhD-k0-tAg" secondAttribute="trailing" constant="12" id="6eU-M9-bSS"/>
+                    <constraint firstItem="WLv-ql-j2W" firstAttribute="leading" secondItem="QVv-Zp-rEc" secondAttribute="trailing" constant="16" id="7YD-Cn-f0Z"/>
                     <constraint firstItem="aCh-Y0-ljZ" firstAttribute="leading" secondItem="BuV-FE-o1R" secondAttribute="trailing" constant="16" id="B48-Rk-29k"/>
                     <constraint firstItem="BuV-FE-o1R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Dyl-y2-8tN"/>
                     <constraint firstItem="fte-O1-35O" firstAttribute="centerY" secondItem="q1O-8W-GTW" secondAttribute="centerY" id="EQJ-Rb-2Vr"/>
                     <constraint firstItem="VDn-MC-bnO" firstAttribute="top" secondItem="aCh-Y0-ljZ" secondAttribute="bottom" constant="8" id="I6g-dU-cDn"/>
                     <constraint firstItem="nhD-k0-tAg" firstAttribute="leading" secondItem="q1O-8W-GTW" secondAttribute="leading" id="KPH-w0-BTF"/>
                     <constraint firstAttribute="trailing" secondItem="aCh-Y0-ljZ" secondAttribute="trailing" constant="16" id="MGf-UU-Fdy"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="WLv-ql-j2W" secondAttribute="trailing" constant="16" id="N42-LN-zE6"/>
                     <constraint firstItem="nhD-k0-tAg" firstAttribute="top" secondItem="q1O-8W-GTW" secondAttribute="bottom" constant="8" id="PFz-bA-ezG"/>
                     <constraint firstItem="q1O-8W-GTW" firstAttribute="leading" secondItem="VDn-MC-bnO" secondAttribute="leading" id="PRz-ey-XTS"/>
                     <constraint firstItem="QVv-Zp-rEc" firstAttribute="centerY" secondItem="nhD-k0-tAg" secondAttribute="centerY" id="RMk-LT-hbT"/>
                     <constraint firstItem="3Wt-PI-KlX" firstAttribute="leading" secondItem="fte-O1-35O" secondAttribute="trailing" constant="8" id="TSg-CM-kEN"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="QVv-Zp-rEc" secondAttribute="trailing" constant="16" id="Ubm-vq-FH0"/>
+                    <constraint firstItem="WLv-ql-j2W" firstAttribute="centerY" secondItem="QVv-Zp-rEc" secondAttribute="centerY" id="VzX-Ql-4K2"/>
                     <constraint firstItem="VDn-MC-bnO" firstAttribute="leading" secondItem="aCh-Y0-ljZ" secondAttribute="leading" id="Yre-Vd-lTJ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="VDn-MC-bnO" secondAttribute="trailing" constant="16" id="Yu7-sV-9h3"/>
                     <constraint firstItem="q1O-8W-GTW" firstAttribute="top" secondItem="VDn-MC-bnO" secondAttribute="bottom" constant="16" id="a4x-lS-wQQ"/>
@@ -109,6 +120,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="circleView" destination="nhD-k0-tAg" id="BXB-kz-fzn"/>
+                <outlet property="createdAt" destination="WLv-ql-j2W" id="YBD-aH-rKp"/>
                 <outlet property="details" destination="VDn-MC-bnO" id="Kh0-MC-6NK"/>
                 <outlet property="fullName" destination="aCh-Y0-ljZ" id="0IF-X8-HjG"/>
                 <outlet property="language" destination="QVv-Zp-rEc" id="8wK-Zm-XRe"/>

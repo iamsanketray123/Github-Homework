@@ -24,11 +24,19 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gvb-Cf-Gx3">
+                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gvb-Cf-Gx3" secondAttribute="bottom" id="3fY-5P-SoO"/>
+                            <constraint firstItem="gvb-Cf-Gx3" firstAttribute="top" secondItem="XxY-Pn-Yt7" secondAttribute="bottom" id="ErJ-dz-4pa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gvb-Cf-Gx3" secondAttribute="trailing" id="MjA-K4-MbY"/>
                             <constraint firstItem="XxY-Pn-Yt7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="T2w-Rm-sG3"/>
+                            <constraint firstItem="gvb-Cf-Gx3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XTm-Gb-Poa"/>
                             <constraint firstItem="XxY-Pn-Yt7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="g1y-cD-GUT"/>
                             <constraint firstItem="XxY-Pn-Yt7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sUD-HA-VmV"/>
                         </constraints>
@@ -36,6 +44,7 @@
                     <navigationItem key="navigationItem" title="Popular Swift Repositories" largeTitleDisplayMode="always" id="5Jg-N3-AMf"/>
                     <connections>
                         <outlet property="searchBar" destination="XxY-Pn-Yt7" id="vA6-ID-orU"/>
+                        <outlet property="table" destination="gvb-Cf-Gx3" id="aIp-o9-yIF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
