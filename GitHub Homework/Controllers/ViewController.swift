@@ -74,9 +74,14 @@ class ViewController: UIViewController {
         let reachability = notification.object as! Reachability
         if reachability.connection == .none {
             presentGHAlertOnMainThread(title: "No Internet", message: "Please check your internet connectivity and try again!", buttonTitle: "OK")
-        } else {
-            fetchTrendingRepos()
         }
+//        MARK: Need to fix --> leading to a bug
+        
+//        else {
+//            if trendingRepos.isEmpty {
+//                fetchTrendingRepos()
+//            }
+//        }
     }
 }
 
