@@ -12,6 +12,9 @@
 		19005B47258CF9D400F8948D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19005B45258CF9D400F8948D /* Main.storyboard */; };
 		19005B49258CF9D600F8948D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19005B48258CF9D600F8948D /* Assets.xcassets */; };
 		19005B4C258CF9D600F8948D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19005B4A258CF9D600F8948D /* LaunchScreen.storyboard */; };
+		19005B5C258D0D8B00F8948D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19005B5B258D0D8B00F8948D /* NetworkManager.swift */; };
+		19005B5F258D0E8100F8948D /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19005B5E258D0E8100F8948D /* Repository.swift */; };
+		19005B62258D0EB800F8948D /* GitHubError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19005B61258D0EB700F8948D /* GitHubError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		19005B48258CF9D600F8948D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19005B4B258CF9D600F8948D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19005B4D258CF9D600F8948D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19005B5B258D0D8B00F8948D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		19005B5E258D0E8100F8948D /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		19005B61258D0EB700F8948D /* GitHubError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,9 @@
 				19005B3F258CF9D400F8948D /* AppDelegate.swift */,
 				19005B43258CF9D400F8948D /* ViewController.swift */,
 				19005B45258CF9D400F8948D /* Main.storyboard */,
+				19005B5B258D0D8B00F8948D /* NetworkManager.swift */,
+				19005B5E258D0E8100F8948D /* Repository.swift */,
+				19005B61258D0EB700F8948D /* GitHubError.swift */,
 				19005B48258CF9D600F8948D /* Assets.xcassets */,
 				19005B4A258CF9D600F8948D /* LaunchScreen.storyboard */,
 				19005B4D258CF9D600F8948D /* Info.plist */,
@@ -134,8 +143,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19005B5C258D0D8B00F8948D /* NetworkManager.swift in Sources */,
 				19005B44258CF9D400F8948D /* ViewController.swift in Sources */,
 				19005B40258CF9D400F8948D /* AppDelegate.swift in Sources */,
+				19005B5F258D0E8100F8948D /* Repository.swift in Sources */,
+				19005B62258D0EB800F8948D /* GitHubError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +305,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Chingel.GitHub-Homework";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -313,7 +325,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Chingel.GitHub-Homework";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
