@@ -25,6 +25,8 @@ class ViewController: UIViewController {
         setupConnectivityNotifier()
     }
     
+    // MARK: - UI Setup
+    
     fileprivate func setupUI() {
         
         searchBar.delegate = self
@@ -34,6 +36,8 @@ class ViewController: UIViewController {
         table.keyboardDismissMode = .onDrag
         table.tableFooterView = UIView()
     }
+    
+    // MARK: - Make API call to fetch required results
     
     fileprivate func fetchTrendingRepos() {
         showLoadingView()
@@ -60,6 +64,8 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Check if we have internet
     
     fileprivate func setupConnectivityNotifier() {
         NotificationCenter.default.addObserver(self, selector: #selector(internetConnectionChanged), name: Notification.Name.reachabilityChanged, object: reachability)

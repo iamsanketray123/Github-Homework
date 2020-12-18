@@ -21,6 +21,8 @@ class SearchResultsController: UIViewController {
         setupTableView()
     }
     
+    // MARK: - TableView Setup
+    
     fileprivate func setupTableView() {
         table.delegate = self
         table.dataSource = self
@@ -46,7 +48,7 @@ extension SearchResultsController: UITableViewDelegate, UITableViewDataSource {
         return 148
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // display user profile on tapping a repo
         let repository = repositories[indexPath.item]
         if let owner = repository.owner {
             showLoadingView()

@@ -74,7 +74,8 @@ class NetworkManager {
                 return
             }
             
-            // traditional method
+            // MARK: - Traditional approach
+            
             let parsedResult : [String:AnyObject]!
             
             do {
@@ -125,7 +126,8 @@ class NetworkManager {
                 return
             }
 
-//            using Codable
+            // MARK: - Using Codable
+            
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase

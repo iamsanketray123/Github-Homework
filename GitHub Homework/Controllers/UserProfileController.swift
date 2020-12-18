@@ -29,6 +29,8 @@ class UserProfileController: UIViewController {
         setupUI()
     }
     
+    // MARK: - UI Setup
+    
     fileprivate func setupUI() {
         guard let user = user else { return }
         
