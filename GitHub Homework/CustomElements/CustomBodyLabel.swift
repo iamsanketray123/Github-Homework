@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GHBodyLabel: UILabel {
+final class GHBodyLabel: UILabel {
 
     // MARK: - Init
 

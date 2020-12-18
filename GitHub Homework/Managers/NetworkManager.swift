@@ -11,6 +11,7 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     private let baseSearchUrl = "https://api.github.com/search/repositories"
+    private let baseUserUrl = "https://api.github.com/users/"
     private init() {}
     
     fileprivate func generateRepositories(_ items: [[String : AnyObject]], _ respositories: inout [Repository]) throws {
@@ -98,6 +99,41 @@ class NetworkManager {
             
         }.resume()
         
+    }
+    
+    func getUserInfo(for username: String, completion: @escaping (Result<User, GHError>) -> Void) {
+        let endpoint = baseUserUrl + "\(username)"
+
+        guard let url = URL(string: endpoint) else {
+            completion(.failure(.invalidResponse))
+            return
+        }
+
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                completion(.failure(.unableToComplete))
+            }
+
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(.failure(.invalidResponse))
+                return
+            }
+
+            guard let data = data else {
+                completion(.failure(.invalidData))
+                return
+            }
+
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let user = try decoder.decode(User.self, from: data)
+                completion(.success(user))
+            } catch {
+                completion(.failure(.invalidData))
+            }
+            
+        }.resume()
     }
     
     

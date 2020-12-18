@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GHTitleLabel: UILabel {
+final class GHTitleLabel: UILabel {
 
     // MARK: - Init
 

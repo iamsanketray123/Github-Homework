@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GHButton: UIButton {
+final class GHButton: UIButton {
 
     // MARK: - Init
 

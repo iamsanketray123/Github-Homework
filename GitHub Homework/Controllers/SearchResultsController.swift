@@ -21,13 +21,6 @@ class SearchResultsController: UIViewController {
         setupTableView()
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-    }
-    
     fileprivate func setupTableView() {
         table.delegate = self
         table.dataSource = self
@@ -50,5 +43,27 @@ extension SearchResultsController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 148
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repository = repositories[indexPath.item]
+        if let owner = repository.owner {
+            showLoadingView()
+            NetworkManager.shared.getUserInfo(for: owner.loginName) { [weak self] (result) in
+                guard let self = self else { return }
+                switch result {
+                case.success(let user):
+                    DispatchQueue.main.async {
+                        let userProfileController = UserProfileController()
+                        userProfileController.user = user
+                        self.navigationController?.pushViewController(userProfileController, animated: true)
+                        self.dismissLoadingView()
+                    }
+                case .failure(let error):
+                    self.presentGHAlertOnMainThread(title: "Error", message: error.rawValue, buttonTitle: "OK")
+                    self.dismissLoadingView()
+                }
+            }
+        }
     }
 }

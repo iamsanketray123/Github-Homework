@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GHAlertVC: UIViewController {
+final class GHAlertVC: UIViewController {
 
     // MARK: - UI Elements
 
