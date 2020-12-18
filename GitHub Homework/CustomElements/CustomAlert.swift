@@ -21,23 +21,20 @@ class GHAlertVC: UIViewController {
     }()
 
     fileprivate lazy var titleLabel: UILabel = {
-        let l = UILabel()
-        l.textAlignment = .center
-        l.font = UIFont.systemFont(ofSize: 28)
+        let l = GHTitleLabel(textAlignment: .center, fontSize: 28)
         l.text = alertTitle ?? "Something went wrong."
         return l
     }()
 
     fileprivate lazy var messageLabel: UILabel = {
-        let l = UILabel()
-        l.textAlignment = .center
+        let l = GHBodyLabel(textAlignment: .center)
         l.text = message ?? "Unable to complete request"
         l.numberOfLines = 4
         return l
     }()
 
     fileprivate lazy var actionButton: UIButton = {
-        let b = UIButton()
+        let b = GHButton(backgroundColor: .systemPink, title: "OK")
         b.setTitle(buttonTitle ?? "OK", for: .normal)
         b.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         return b

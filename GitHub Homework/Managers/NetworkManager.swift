@@ -10,7 +10,7 @@ import Foundation
 class NetworkManager {
     
     static let shared = NetworkManager()
-    private let searchUrl = "https://api.github.com/search/repositories"
+    private let baseSearchUrl = "https://api.github.com/search/repositories"
     private init() {}
     
     fileprivate func generateRepositories(_ items: [[String : AnyObject]], _ respositories: inout [Repository]) throws {
@@ -45,10 +45,14 @@ class NetworkManager {
         }
     }
     
-    func fetchRepository(with name: String, completion: @escaping (Result<[Repository], GHError>) -> Void) {
+    func fetchRepository(with name: String = String(), shouldFetchPopularSwiftRepos: Bool = false, completion: @escaping (Result<[Repository], GHError>) -> Void) {
         
-        let endpoint = searchUrl + "?q=\(name)"
-
+        var endpoint = baseSearchUrl + "?q=\(name)"
+        
+        if shouldFetchPopularSwiftRepos {
+            endpoint = baseSearchUrl + "?q=language:Swift&sort=stars"
+        }
+        
         guard let url = URL(string: endpoint) else {
             completion(.failure(.invalidResponse))
             return
@@ -95,5 +99,6 @@ class NetworkManager {
         }.resume()
         
     }
+    
     
 }
