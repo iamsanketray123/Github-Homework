@@ -20,7 +20,7 @@ class NetworkManager {
             var repLicense: License? = nil
             let language = item["language"] as? String
             
-            guard let name = item["name"] as? String, let stars = item["stargazers_count"] as? Int, let lastUpadatedAt = item["updated_at"] as? String else {
+            guard let name = item["full_name"] as? String, let stars = item["stargazers_count"] as? Int, let lastUpadatedAt = item["updated_at"] as? String else {
                 throw GHError.invalidData
             }
             
@@ -74,7 +74,6 @@ class NetworkManager {
             do {
                 parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:AnyObject]
             } catch {
-                print("error parsing data", error.localizedDescription,"🥤")
                 completion(.failure(.invalidData))
                 return
             }

@@ -39,14 +39,14 @@ extension ViewController: UISearchBarDelegate {
                 
                 switch result {
                 case.success(let response):
-                    print(response, "🦋")
                     DispatchQueue.main.async {
-                        self.navigationController?.pushViewController(SearchResultsController(), animated: true)
+                        let searchResultsController = SearchResultsController()
+                        searchResultsController.repositories = response
+                        self.navigationController?.pushViewController(searchResultsController, animated: true)
                         self.dismissLoadingView()
                     }
                     
                 case .failure(let error):
-                    print(error, "🐙")
                     switch error {
                     case .noResults:
                         self.presentGHAlertOnMainThread(title: "Error", message: "No results were found for the repository name. Please try again!", buttonTitle: "Ok")
